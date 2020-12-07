@@ -39,7 +39,8 @@ public class NumberSummarizer implements NumberRangeSummarizer{
                 str.append(array[i] +", ");
             }
         }
-        str.deleteCharAt(str.length()-2);
+        str.deleteCharAt(str.length()-1);
+        str.deleteCharAt(str.length()-1);
         String range = str.toString();
         return range;
     }
