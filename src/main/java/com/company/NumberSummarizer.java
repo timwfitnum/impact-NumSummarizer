@@ -5,6 +5,13 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Assuming there can be negative numbers in the list, will display as example -1, so -1,0,1 = -1-1
+ * Assuming the list can be unordered, made use of sorting in that case
+ * Assuming the list will be never be missing a number between commas.
+ **/
+
+
 public class NumberSummarizer implements NumberRangeSummarizer{
 
 //Create Col of integers from string input. Works for negatives.

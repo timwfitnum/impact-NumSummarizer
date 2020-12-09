@@ -35,7 +35,15 @@ public class MyTests {
         assertEquals("0-1000", toTest(testStr));
     }
 
+    @Test
+    public void testDescEvenList(){
+        assertEquals("2, 4, 6, 8, 10, 12", toTest("12,10,8,6,4,2"));
+    }
 
+    @Test
+    public void testDescSeqRange(){
+        assertEquals("1-13", toTest("13,12,11,10,9,8,7,6,5,4,3,2,1"));
+    }
     public String toTest(String input){
         NumberSummarizer numSum = new NumberSummarizer();
         String result = numSum.summarizeCollection(numSum.collect(input));
