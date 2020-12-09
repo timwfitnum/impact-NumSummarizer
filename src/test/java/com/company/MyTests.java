@@ -35,6 +35,7 @@ public class MyTests {
         assertEquals("0-1000", toTest(testStr));
     }
 
+
     public String toTest(String input){
         NumberSummarizer numSum = new NumberSummarizer();
         String result = numSum.summarizeCollection(numSum.collect(input));

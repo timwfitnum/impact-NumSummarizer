@@ -9,25 +9,34 @@ public class NumberSummarizer implements NumberRangeSummarizer{
 
 //Create Col of integers from string input. Works for negatives.
     public Collection<Integer> collect(String input) {
+        //Split String into comma separated strings
        String[] split = input.split(",");
        List<Integer> array = new ArrayList<Integer>();
-       for(int i = 0; i < split.length; i++){
-           array.add(Integer.parseInt(split[i]));
+       // Convert strings to integers and insert into arrayList
+       for(String s: split){
+           array.add(Integer.parseInt(s));
        }
+       //Make sure array list is sorted in corrected order for appropriate range calculations
        Collections.sort(array);
-       Collection<Integer> col = array;
-       return col;
+
+        //Return collection of integers
+       return array;
     }
 
 // Works for negative numbers but doesnt look as pretty
     public String summarizeCollection(Collection<Integer> input) {
+        // Create String for building our range
         StringBuilder str = new StringBuilder();
+        // Transform Collection of Integers into array of Integers
         Integer[] array = input.toArray(new Integer[0]);
-        int temp = 0;
+        int temp;
+        
+        //Iterate through array building Range String
         for(int i = 0; i < array.length; i++) {
             if(i == array.length - 1){
                 str.append(array[i] +", ");
             }
+            // If sequential
             else if(array[i] == (array[i+1] - 1) ) {
                 temp = array[i];
                 while(i != array.length-1) {
@@ -35,13 +44,14 @@ public class NumberSummarizer implements NumberRangeSummarizer{
                     else break;
                 }
                 str.append(temp + "-" + array[i] +", ");
-            } else {
+            }
+            //If not sequential
+            else {
                 str.append(array[i] +", ");
             }
         }
-        str.deleteCharAt(str.length()-1);
-        str.deleteCharAt(str.length()-1);
-        String range = str.toString();
-        return range;
+        //Remove space and comma at end.
+        str.delete(str.length()-2, str.length());
+        return str.toString();
     }
 }
